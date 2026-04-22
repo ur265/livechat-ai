@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: livechat-test-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: LC_PAT_TOKEN
+        sync: false
+      - key: LC_ACCOUNT_ID
+        sync: false
+      - key: LC_BOT_AGENT_ID
+        sync: false
+      - key: LC_WEBHOOK_SECRET
+        sync: false
